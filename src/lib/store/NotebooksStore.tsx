@@ -11,9 +11,9 @@ type Notebooks = {
 class NotebookStore {
 
   notebooks: Notebooks[] = [
-    {name: 'Test notebook name length overdohuya', count: '123', slug: 'test-slug'},
-    {name: 'Test notebook name length overdohuya', count: '123', slug: 'test-slug'},
-    {name: 'Test notebook name length overdohuya', count: '123', slug: 'test-slug'},
+    {name: 'Test notebook name length overdohuya', count: '123', slug: 'test-slug-1'},
+    {name: 'Test notebook name length overdohuya', count: '123', slug: 'test-slug-2'},
+    {name: 'Test notebook name length overdohuya', count: '0', slug: 'test-slug-3'},
   ]
 
   constructor() {

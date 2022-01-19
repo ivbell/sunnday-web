@@ -72,7 +72,6 @@
   justify-content: space-between;
   padding-left: calc($gutter/2);
   padding-right: calc($gutter/2);
-  border-bottom: .5px solid $border-color;
   color: $text-left-side;
   cursor: pointer;
   &:hover {
@@ -114,6 +113,7 @@
   align-items: center;
   padding-left: 15px;
   padding-right: 15px;
+  color: $gray;
 
   &:hover {
     background-color: $bg-hover;
@@ -147,6 +147,34 @@
   }
 }
 
-.border-bottom {
+.navbar-left-side__list-item {
   border-bottom: 1px solid $border-color;
+}
+
+.navbar-list-item-no-icon-count {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  padding-left: 40px;
+  padding-right: 15px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  cursor: pointer;
+
+  .title {
+    color: $text-left-side;
+  }
+
+  .count {
+    color: $gray;
+  }
+
+  &:hover {
+    background-color: $bg-hover;
+  }
+
+  .active {
+    background-color: $bg-hover;
+  }
 }
