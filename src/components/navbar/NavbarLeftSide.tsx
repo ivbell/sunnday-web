@@ -73,7 +73,7 @@ const NavbarLeftSide: FC = observer(() => {
           icon={<AiOutlineFileText />}
           onClick={() => console.log('123')}
         />
-        {notebooksList}
+        {temlatesList}
       </div>
 
       <div className='navbar-left-side__list-item'>
