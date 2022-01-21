@@ -37,7 +37,7 @@
   color: $text-left-side;
 
   .title_box {
-    padding: calc($gutter/2) calc($gutter/2) calc($gutter/6) calc($gutter/2);
+    padding: calc($gutter / 2) calc($gutter / 2) calc($gutter / 6) calc($gutter / 2);
     display: flex;
     justify-content: space-between;
     border-bottom: 0.5px solid $border-color;
@@ -52,9 +52,10 @@
       &_box {
         display: flex;
       }
+
       &_item {
         font-size: 20px;
-        margin-left: calc($gutter/6);
+        margin-left: calc($gutter / 6);
         cursor: pointer;
         color: $gray;
 
@@ -70,10 +71,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: calc($gutter/2);
-  padding-right: calc($gutter/2);
+  padding-left: calc($gutter / 2);
+  padding-right: calc($gutter / 2);
   color: $text-left-side;
   cursor: pointer;
+
   &:hover {
     background-color: $bg-hover;
 
@@ -81,6 +83,7 @@
       color: $accent;
     }
   }
+
   .icon {
     font-size: 20px;
     margin-top: 4px;
@@ -179,3 +182,83 @@
   }
 }
 
+.navbar-list-item-arrow {
+  display: flex;
+  align-items: center;
+  color: $gray;
+  padding-left: 15px;
+  padding-right: 15px;
+  justify-content: space-between;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $bg-hover;
+
+    .icon {
+      color: $accent;
+    }
+  }
+
+  .left-box {
+    align-items: center;
+    display: flex;
+  }
+
+  .icon {
+    font-size: 20px;
+    margin-top: 4px;
+    margin-right: 5px;
+  }
+
+  .arrow {
+    margin-top: 4px;
+  }
+}
+
+
+.status-list {
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 2px 15px 2px 40px;
+
+    .icon {
+      margin-right: 5px;
+      margin-top: 3px;
+      font-size: 15px;
+    }
+
+    .title {
+      color: $text-left-side;
+      font-size: 14px;
+    }
+
+    &:hover {
+      background-color: $bg-hover;
+    }
+  }
+}
+
+.tags-list {
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 2px 15px 2px 40px;
+
+    .icon {
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+      margin-right: 5px;
+    }
+
+    .title {
+      color: $text-left-side;
+      font-size: 14px;
+    }
+
+    &:hover {
+      background-color: $bg-hover;
+    }
+  }
+}
