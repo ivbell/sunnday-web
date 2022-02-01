@@ -1,5 +1,4 @@
-import { ITheme, ThemeEnum } from '../../types/styled'
-import { DefaultTheme } from 'styled-components'
+import { ITheme } from '../../types/styled'
 
 export const baseTheme: ITheme = {
   colors: {
@@ -22,22 +21,18 @@ export const baseTheme: ITheme = {
   },
 }
 
-export const lightTheme: DefaultTheme = {
+export const lightTheme: ITheme = {
   ...baseTheme,
-  type: ThemeEnum.light,
-
   colors: {
     ...baseTheme.colors,
     bg_body: '#F4F4F4',
   },
 }
 
-export const darkTheme: DefaultTheme = {
+export const darkTheme: ITheme = {
   ...baseTheme,
-  type: ThemeEnum.dark,
-
   colors: {
     ...baseTheme.colors,
-    bg_body: '#3A3A3A',
+    bg_body: '#323232',
   },
 }

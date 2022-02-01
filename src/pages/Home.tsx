@@ -1,12 +1,15 @@
+import { observer } from 'mobx-react'
+import React, { FC } from 'react'
+import EmptyLayout from '../components/layouts/EmptyLayout'
+import UiStore from '../lib/store/UiStore'
 
-import { FC } from "react"
-
-const Home: FC = () => {
+const Home: FC = observer(() => {
   return (
-    <>
-      <h1>Home</h1>
-    </>
+    <EmptyLayout title={'Home'}>
+      Home
+      <div onClick={() => UiStore.toggleMode()}>123</div>
+    </EmptyLayout>
   )
-}
+})
 
 export default Home

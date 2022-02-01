@@ -4,7 +4,6 @@ export enum ThemeEnum {
 }
 
 export interface ITheme {
-  type: ThemeEnum
   colors: {
     primary: string
     error: string

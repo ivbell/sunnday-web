@@ -5,10 +5,10 @@ type Props = {
 }
 
 const EmptyLayout: FC<Props> = ({ children, title }) => {
-  document.title = 'Sunnday'
+  document.title = `${title} | Sunnday`
+  
   return (
     <div>
-      {title}
       {children}
     </div>
   )
