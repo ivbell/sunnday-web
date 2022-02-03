@@ -1,7 +1,8 @@
-import Dashboard from "../../pages/Dashboard"
-import Error from "../../pages/Error"
-import Home from "../../pages/Home"
-import Login from "../../pages/Login"
+import Dashboard from '../../pages/Dashboard'
+import Error from '../../pages/Error'
+import Home from '../../pages/Home'
+import Login from '../../pages/Login'
+import React from 'react'
 
 export type Router = {
   path: string
@@ -16,11 +17,11 @@ export enum RouterNames {
 }
 
 export const publicRoutes: Router[] = [
-  {path: RouterNames.HOME, element: <Home />},
-  {path: RouterNames.ERROR, element: <Error />},
-  {path: RouterNames.LOGIN, element: <Login />}
+  { path: RouterNames.HOME, element: <Home /> },
+  { path: RouterNames.ERROR, element: <Error /> },
+  { path: RouterNames.LOGIN, element: <Login /> },
 ]
 
 export const privateRoutes: Router[] = [
-  {path: RouterNames.DASHBOARD, element: <Dashboard />}
+  { path: RouterNames.DASHBOARD, element: <Dashboard /> },
 ]

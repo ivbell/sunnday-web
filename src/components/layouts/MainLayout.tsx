@@ -1,11 +1,17 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
-const MainLayout: FC = ({ children }) => {
+type Props = {
+  title?: string
+}
+
+const EmptyLayout: FC<Props> = ({ children, title }) => {
+  document.title = `${title} | Sunnday`
+  
   return (
     <div>
       {children}
     </div>
-  );
-};
+  )
+}
 
-export default MainLayout;
+export default EmptyLayout
