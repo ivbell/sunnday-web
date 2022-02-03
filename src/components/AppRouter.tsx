@@ -1,3 +1,4 @@
+import React from 'react'
 import { observer } from 'mobx-react-lite'
 import { FC } from 'react'
 import { Route, Routes } from 'react-router-dom'

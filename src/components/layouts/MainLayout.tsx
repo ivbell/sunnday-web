@@ -1,15 +1,17 @@
 import React, { FC } from 'react'
-import Navbar from '../navbar'
 
-const MainLayout: FC = ({ children }) => {
+type Props = {
+  title?: string
+}
+
+const EmptyLayout: FC<Props> = ({ children, title }) => {
+  document.title = `${title} | Sunnday`
+  
   return (
-    <div className='main_layout'>
-      <div className='main_layout-navbar'>
-        <Navbar />
-      </div>
-      <main className='main_layout-content'>{children}</main>
+    <div>
+      {children}
     </div>
   )
 }
 
-export default MainLayout
+export default EmptyLayout
