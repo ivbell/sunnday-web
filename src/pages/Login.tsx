@@ -7,15 +7,14 @@ import {
   Input,
   Stack,
   Text,
-  useToast,
+  useToast
 } from '@chakra-ui/react'
 import axios from 'axios'
 import { observer } from 'mobx-react'
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Cookie from 'universal-cookie'
 import EmptyLayout from '../components/layouts/EmptyLayout'
-import { useUser } from '../lib/data/useUser'
 import UserStore from '../lib/store/UserStore'
 
 interface User {
@@ -35,13 +34,15 @@ const Login: FC = observer(() => {
   const [user, setUser] = useState<User>(initialUser)
   const [isLoad, setIsLoad] = useState<boolean>(false)
 
-  const { dataUser, isLoading, isError } = useUser(cookie.get('token'))
-
-  console.log(dataUser)
-
   const handlerUser = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUser({ ...user, [e.target.name]: e.target.value })
   }
+
+  useEffect(() => {
+    if (UserStore.isAuth) {
+      navigate('/dashboard')
+    }
+  }, [])
 
   const login = () => {
     // TODO
