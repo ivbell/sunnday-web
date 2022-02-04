@@ -17,12 +17,17 @@ const config = {
   initialColorMode: 'dark',
   useSystemColorMode: false,
 }
+
+const fonts = {
+  heading: "'Comfortaa', cursive",
+  body: "'M PLUS Rounded 1c', sans-serif",
+}
 const components = {
   Button,
   Input,
 }
 // 1c2128
 
-const theme = extendTheme({ config, styles, colors, components })
+const theme = extendTheme({ config, styles, fonts, colors, components })
 
 export default theme
