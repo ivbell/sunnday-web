@@ -4,8 +4,8 @@ type Props = {
   title?: string
 }
 
-const EmptyLayout: FC<Props> = ({ children, title }) => {
-  document.title = `${title} | Sunnday`
+const MainLayout: FC<Props> = ({ children, title }) => {
+  document.title = `${title} | Sunnday | A note-taking app and a little more`
   
   return (
     <div>
@@ -14,4 +14,4 @@ const EmptyLayout: FC<Props> = ({ children, title }) => {
   )
 }
 
-export default EmptyLayout
+export default MainLayout

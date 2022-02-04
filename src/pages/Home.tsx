@@ -3,7 +3,10 @@ import React, { FC } from 'react'
 import EmptyLayout from '../components/layouts/EmptyLayout'
 
 const Home: FC = observer(() => {
-  return <EmptyLayout title={'Home'}>Home</EmptyLayout>
+  return (
+    <EmptyLayout title={'Home'}>
+    </EmptyLayout>
+  )
 })
 
 export default Home

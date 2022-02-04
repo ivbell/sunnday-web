@@ -1,3 +1,4 @@
+import { Box } from '@chakra-ui/react'
 import React, { FC } from 'react'
 import NavbarEmpty from '../empty/NavbarEmpty'
 
@@ -6,14 +7,14 @@ type Props = {
 }
 
 const EmptyLayout: FC<Props> = ({ children, title }) => {
-  document.title = `${title} | Sunnday`
+  document.title = `${title} | Sunnday | A note-taking app and a little more`
 
   return (
-    <div>
+    <>
       <NavbarEmpty />
-      {children}
+      <Box py={1}>{children}</Box>
       {/* Footer */}
-    </div>
+    </>
   )
 }
 
