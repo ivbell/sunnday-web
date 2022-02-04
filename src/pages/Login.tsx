@@ -5,12 +5,12 @@ import {
   Container,
   Heading,
   Input,
-  Text,
   Stack,
-  useColorModeValue,
+  Text,
 } from '@chakra-ui/react'
 import React, { FC, useState } from 'react'
 import EmptyLayout from '../components/layouts/EmptyLayout'
+import axios from 'axios'
 
 interface User {
   readonly login: string
@@ -30,6 +30,10 @@ const Login: FC = () => {
     setUser({ ...user, [e.target.name]: e.target.value })
   }
   console.log(user)
+
+  const login = () => {
+    axios.post()
+  }
 
   return (
     <EmptyLayout title={'Login'}>
