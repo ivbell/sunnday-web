@@ -13,6 +13,9 @@ class UserStore {
   userIdUpdate(id: string) {
     this.userId = id
   }
+  userLogout() {
+    this.isAuth = false
+  }
 }
 
 export default new UserStore()

@@ -7,7 +7,7 @@ import {
   Input,
   Stack,
   Text,
-  useToast
+  useToast,
 } from '@chakra-ui/react'
 import axios from 'axios'
 import { observer } from 'mobx-react'
@@ -57,7 +57,7 @@ const Login: FC = observer(() => {
           password: user.password,
         })
         .then((res) => {
-          cookie.set('token', res.data.accessToken, { path: '/' })
+          cookie.set('token', res.data.accessToken, { path: '/', maxAge: 3600 })
           UserStore.userAuth()
           navigate('/dashboard')
           toast({

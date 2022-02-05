@@ -8,15 +8,17 @@ import Fonts from './lib/theme/fonts'
 import theme from './lib/theme/theme'
 import Cookie from 'universal-cookie'
 import UserStore from './lib/store/UserStore'
+import LoadingComponent from './components/common/LoadingComponent'
 
 const App = observer(() => {
   const cookie = new Cookie()
-  const { dataUser, isLoading, isError } = useUser(cookie.get('token'))
+  const token = cookie.get('token')
+  const { dataUser, isLoading } = useUser(token)
 
   useEffect(() => {
-    UserStore.userAuth()
-    if (dataUser) {
+    if (dataUser && !isLoading) {
       UserStore.userIdUpdate(dataUser.user_id)
+      UserStore.userAuth()
     }
   }, [dataUser])
 
@@ -24,7 +26,7 @@ const App = observer(() => {
     <ChakraProvider theme={theme}>
       <Fonts />
       <BrowserRouter>
-        <AppRouter />
+        {isLoading ? <LoadingComponent /> : <AppRouter />}
       </BrowserRouter>
     </ChakraProvider>
   )

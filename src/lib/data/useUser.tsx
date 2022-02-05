@@ -10,8 +10,7 @@ const fetcher = (url: string, token: string) =>
   axios
     .get(url, {
       headers: {
-        Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZjJjMDVlNjkzMDBkYTIwNjA0MTk1ZSIsImlhdCI6MTY0Mzk4NTE0MSwiZXhwIjoxNjQzOTg4NzQxfQ.MJsI_dMn1rA05i678s0-0xpYXZYjL7XrMLQj_aHca0A',
+        Authorization: `Bearer ${token}`,
       },
     })
     .then((res) => res.data)

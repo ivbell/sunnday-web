@@ -1,4 +1,6 @@
+import { Box, Stack } from '@chakra-ui/react'
 import React, { FC } from 'react'
+import NavbarMain from '../main/NavbarMain'
 
 type Props = {
   title?: string
@@ -6,11 +8,14 @@ type Props = {
 
 const MainLayout: FC<Props> = ({ children, title }) => {
   document.title = `${title} | Sunnday | A note-taking app and a little more`
-  
+
   return (
-    <div>
-      {children}
-    </div>
+    <Stack direction={['column', 'row']}>
+      <Box position={'relative'} minW={'500px'} maxW={'500px'}>
+        <NavbarMain />
+      </Box>
+      <main>{children}</main>
+    </Stack>
   )
 }
 

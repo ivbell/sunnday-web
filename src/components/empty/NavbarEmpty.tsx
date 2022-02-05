@@ -5,12 +5,22 @@ import {
   Stack,
   useColorModeValue,
 } from '@chakra-ui/react'
+import { observer } from 'mobx-react'
 import React, { FC } from 'react'
+import Cookie from 'universal-cookie'
+import UserStore from '../../lib/store/UserStore'
 import { RouterLink } from '../common/RouterLink'
 import Logo from '../Logo'
 import ToggleColorMode from '../ToggleColorMode'
 
-const NavbarEmpty: FC = () => {
+const NavbarEmpty: FC = observer(() => {
+  const cookie = new Cookie()
+  const logout = () => {
+    cookie.remove('token')
+    UserStore.userIdUpdate('')
+    UserStore.userLogout()
+  }
+
   return (
     <Box
       py={3}
@@ -28,18 +38,28 @@ const NavbarEmpty: FC = () => {
               <Logo />
             </RouterLink>
           </Box>
-          <Stack direction={['column', 'row']} alignItems={'center'}>
-            <ToggleColorMode />
-            <RouterLink to='/login'>
-              <Button variant={'solid'}>
-                Log in
+          {UserStore.isAuth ? (
+            <Stack direction={['column', 'row']} alignItems={'center'}>
+              <RouterLink to='/dashboard'>
+                <Button>Go to app</Button>
+              </RouterLink>
+              <ToggleColorMode />
+              <Button onClick={logout} variant={'solid'}>
+                Log out
               </Button>
-            </RouterLink>
-          </Stack>
+            </Stack>
+          ) : (
+            <Stack direction={['column', 'row']} alignItems={'center'}>
+              <ToggleColorMode />
+              <RouterLink to='/login'>
+                <Button variant={'solid'}>Log in</Button>
+              </RouterLink>
+            </Stack>
+          )}
         </Stack>
       </Container>
     </Box>
   )
-}
+})
 
 export default NavbarEmpty
