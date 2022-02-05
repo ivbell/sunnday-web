@@ -15,7 +15,9 @@ const App = observer(() => {
 
   useEffect(() => {
     UserStore.userAuth()
-    UserStore.userIdUpdate(dataUser.user_id)
+    if (dataUser) {
+      UserStore.userIdUpdate(dataUser.user_id)
+    }
   }, [dataUser])
 
   return (
