@@ -1,10 +1,9 @@
 import { Button } from '@chakra-ui/react'
-import { observer } from 'mobx-react'
 import React, { FC } from 'react'
 import EmptyLayout from '../components/layouts/EmptyLayout'
 
 
-const Home: FC = observer(() => {
+const Home: FC = () => {
 
 
   return (
@@ -12,6 +11,6 @@ const Home: FC = observer(() => {
       <Button>123</Button>
     </EmptyLayout>
   )
-})
+}
 
 export default Home

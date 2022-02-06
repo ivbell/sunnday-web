@@ -10,36 +10,36 @@ import {
   useToast,
 } from '@chakra-ui/react'
 import axios from 'axios'
-import { observer } from 'mobx-react'
 import React, { FC, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Cookie from 'universal-cookie'
 import EmptyLayout from '../components/layouts/EmptyLayout'
-import UserStore from '../lib/store/UserStore'
+import { useTypedSelector } from '../lib/hooks/useTypedSelector'
 
 interface User {
   readonly login: string
   readonly password: string
 }
 
-const Login: FC = observer(() => {
+const Login: FC = () => {
   const toast = useToast()
   const navigate = useNavigate()
+  const { is_auth } = useTypedSelector((state) => state.user)
   const cookie = new Cookie()
-  const initialUser: User = {
+  const initial_user: User = {
     login: '',
     password: '',
   }
 
-  const [user, setUser] = useState<User>(initialUser)
-  const [isLoad, setIsLoad] = useState<boolean>(false)
+  const [user, setUser] = useState<User>(initial_user)
+  const [is_load, setIsLoad] = useState<boolean>(false)
 
-  const handlerUser = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleUser = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUser({ ...user, [e.target.name]: e.target.value })
   }
 
   useEffect(() => {
-    if (UserStore.isAuth) {
+    if (is_auth) {
       navigate('/dashboard')
     }
   }, [])
@@ -58,7 +58,6 @@ const Login: FC = observer(() => {
         })
         .then((res) => {
           cookie.set('token', res.data.accessToken, { path: '/', maxAge: 3600 })
-          UserStore.userAuth()
           navigate('/dashboard')
           toast({
             title: 'Welcome back',
@@ -91,8 +90,7 @@ const Login: FC = observer(() => {
               fontSize={'4xl'}
               py={2}
               align={'center'}
-              color={'gray.600'}
-            >
+              color={'gray.600'}>
               Welcome in
             </Text>
             <Heading align={'center'} color={'accent.50'}>
@@ -102,16 +100,16 @@ const Login: FC = observer(() => {
               <Stack spacing={'10px'}>
                 <Input
                   isRequired
-                  isDisabled={isLoad}
-                  onChange={handlerUser}
+                  isDisabled={is_load}
+                  onChange={handleUser}
                   name={'login'}
                   placeholder={'Login'}
                 />
                 <Input
-                  isDisabled={isLoad}
+                  isDisabled={is_load}
                   isRequired
                   type={'password'}
-                  onChange={handlerUser}
+                  onChange={handleUser}
                   name={'password'}
                   placeholder={'Password'}
                 />
@@ -119,13 +117,11 @@ const Login: FC = observer(() => {
               <Stack
                 py={5}
                 direction={['column', 'row']}
-                justify={'space-between'}
-              >
+                justify={'space-between'}>
                 <Button
                   onClick={login}
                   colorScheme={'violet'}
-                  variant={'solid'}
-                >
+                  variant={'solid'}>
                   Log in
                 </Button>
                 <Button>Registration</Button>
@@ -136,6 +132,6 @@ const Login: FC = observer(() => {
       </Container>
     </EmptyLayout>
   )
-})
+}
 
 export default Login

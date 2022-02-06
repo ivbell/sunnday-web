@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Container } from '@chakra-ui/react'
 import React, { FC } from 'react'
 import NavbarEmpty from '../empty/NavbarEmpty'
 
@@ -12,7 +12,9 @@ const EmptyLayout: FC<Props> = ({ children, title }) => {
   return (
     <>
       <NavbarEmpty />
-      <Box py={1}>{children}</Box>
+      <Container py={2} maxW={'container.xl'}>
+        {children}
+      </Container>
       {/* Footer */}
     </>
   )

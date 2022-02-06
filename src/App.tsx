@@ -1,35 +1,34 @@
 import { ChakraProvider } from '@chakra-ui/react'
-import { observer } from 'mobx-react-lite'
 import React, { useEffect } from 'react'
 import { BrowserRouter } from 'react-router-dom'
+import Cookie from 'universal-cookie'
 import AppRouter from './components/AppRouter'
-import { useUser } from './lib/data/useUser'
+import LoadingComponent from './components/common/LoadingComponent'
+import { useActions } from './lib/hooks/useActions'
+import { useTypedSelector } from './lib/hooks/useTypedSelector'
 import Fonts from './lib/theme/fonts'
 import theme from './lib/theme/theme'
-import Cookie from 'universal-cookie'
-import UserStore from './lib/store/UserStore'
-import LoadingComponent from './components/common/LoadingComponent'
 
-const App = observer(() => {
+const App = () => {
   const cookie = new Cookie()
   const token = cookie.get('token')
-  const { dataUser, isLoading } = useUser(token)
+  const { loading } = useTypedSelector((store) => store.user)
+  const { userAuthToken } = useActions()
 
   useEffect(() => {
-    if (dataUser && !isLoading) {
-      UserStore.userIdUpdate(dataUser.user_id)
-      UserStore.userAuth()
+    if (token) {
+      userAuthToken(token)
     }
-  }, [dataUser])
+  }, [])
 
   return (
     <ChakraProvider theme={theme}>
       <Fonts />
       <BrowserRouter>
-        {isLoading ? <LoadingComponent /> : <AppRouter />}
+        {loading ? <LoadingComponent /> : <AppRouter />}
       </BrowserRouter>
     </ChakraProvider>
   )
-})
+}
 
 export default App
