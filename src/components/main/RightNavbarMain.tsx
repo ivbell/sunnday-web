@@ -1,7 +1,13 @@
-import React, { FC } from 'react'
+import { Box } from "@chakra-ui/react";
+import React, { FC } from "react";
 
 const RightNavbarMain: FC = () => {
-  return <div>Right</div>
-}
+  
+  return (
+    <Box>
+      Left
+    </Box>
+  )
+};
 
-export default RightNavbarMain
+export default RightNavbarMain;
