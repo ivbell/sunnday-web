@@ -3,7 +3,7 @@ import MainLayout from '../components/layouts/MainLayout'
 
 const Dashboard: FC = () => {
   return (
-    <MainLayout>
+    <MainLayout title='Dashboard'>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente nobis
       labore doloribus ipsa quam consectetur ipsam accusantium illo magni
       distinctio iusto quos, nam, laborum excepturi aperiam reprehenderit sint

@@ -14,6 +14,7 @@ import React, { FC, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Cookie from 'universal-cookie'
 import EmptyLayout from '../components/layouts/EmptyLayout'
+import { useActions } from '../lib/hooks/useActions'
 import { useTypedSelector } from '../lib/hooks/useTypedSelector'
 
 interface User {
@@ -30,7 +31,7 @@ const Login: FC = () => {
     login: '',
     password: '',
   }
-
+  const { userAuthToken } = useActions()
   const [user, setUser] = useState<User>(initial_user)
   const [is_load, setIsLoad] = useState<boolean>(false)
 
@@ -58,6 +59,7 @@ const Login: FC = () => {
         })
         .then((res) => {
           cookie.set('token', res.data.accessToken, { path: '/', maxAge: 3600 })
+          userAuthToken(res.data.accessToken)
           navigate('/dashboard')
           toast({
             title: 'Welcome back',
@@ -93,7 +95,7 @@ const Login: FC = () => {
               color={'gray.600'}>
               Welcome in
             </Text>
-            <Heading align={'center'} color={'accent.50'}>
+            <Heading align={'center'} color={'sn.accent'}>
               Sunnday
             </Heading>
             <Box p={3}>

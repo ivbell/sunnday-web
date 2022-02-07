@@ -267,8 +267,11 @@ export const colors = {
     800: '#9f1239',
     900: '#881337',
   },
-
-  accent: {
-    50: '#A78BFA',
+  sn: {
+    accent: '#A78BFA',
+    bg: '#232227',
+    bg_accent: '#3A3A3A',
+    text: '#CACACA',
+    line: '#3B3B3C',
   },
 }

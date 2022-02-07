@@ -7,6 +7,7 @@ import {
 } from '@chakra-ui/react'
 import React, { FC } from 'react'
 import Cookie from 'universal-cookie'
+import { useActions } from '../../lib/hooks/useActions'
 import { useTypedSelector } from '../../lib/hooks/useTypedSelector'
 import Logo from '../common/Logo'
 import { RouterLink } from '../common/RouterLink'
@@ -15,8 +16,10 @@ import ToggleColorMode from '../ToggleColorMode'
 const NavbarEmpty: FC = () => {
   const cookie = new Cookie()
   const { is_auth } = useTypedSelector((state) => state.user)
+  const {userLogout} = useActions()
   const logout = () => {
     cookie.remove('token')
+    userLogout()
   }
 
   return (

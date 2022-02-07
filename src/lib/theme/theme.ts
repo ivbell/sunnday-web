@@ -1,14 +1,14 @@
 import { extendTheme } from '@chakra-ui/react'
-import Button from './components/ButtonStyle'
-import Input from './components/InputStyle'
 import { mode } from '@chakra-ui/theme-tools'
 import { colors } from './colors'
+import Button from './components/ButtonStyle'
+import Input from './components/InputStyle'
 
 const styles = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   global: (props: any) => ({
     body: {
-      bg: mode('#F4F4F4', '#1c2128')(props),
+      bg: mode('gray.50', 'zinc.800')(props),
     },
   }),
 }

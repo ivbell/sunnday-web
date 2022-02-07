@@ -2,6 +2,7 @@ export enum UserActionTypes {
   AUTH_USER = 'AUTH_USER',
   AUTH_USER_SUCCESS = 'AUTH_USER_SUCCESS',
   AUTH_USER_ERROR = 'AUTH_USER',
+  AUTH_USER_LOGOUT = 'AUTH_USER_LOGOUT',
 }
 
 export interface UserState {
@@ -37,12 +38,17 @@ interface AuthUserSuccessAction {
   payload: AuthUserSuccessPayload
 }
 
-interface AuthErrorAction {
+interface AuthUserErrorAction {
   type: UserActionTypes.AUTH_USER_ERROR
   payload: AuthUserErrorPayload
+}
+
+interface AuthUserLogoutAction {
+  type: UserActionTypes.AUTH_USER_LOGOUT
 }
 
 export type UserAction =
   | AuthUserAction
   | AuthUserSuccessAction
-  | AuthErrorAction
+  | AuthUserErrorAction
+  | AuthUserLogoutAction

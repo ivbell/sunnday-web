@@ -25,6 +25,12 @@ export const userReducer = (
         user_id: '',
         is_auth: false,
       }
+    case UserActionTypes.AUTH_USER_LOGOUT:
+      return {
+        loading: false,
+        user_id: '',
+        is_auth: false,
+      }
     default:
       return state
   }

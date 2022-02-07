@@ -7,7 +7,7 @@ const NavbarMain: FC = () => {
   return (
     <Box>
       <Stack direction={['column', 'row']} spacing={'5px'}>
-        <Box w={'45%'}>
+        <Box w={'45%'} position={'relative'}>
           <LeftNavbarMain />
         </Box>
         <Box w={'55%'}>

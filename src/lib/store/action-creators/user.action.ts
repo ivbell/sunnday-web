@@ -30,3 +30,18 @@ export const userAuthToken = (token: string) => {
     }
   }
 }
+
+export const userLogout = () => {
+  return (dispatch: Dispatch<UserAction>) => {
+    try {
+      dispatch({
+        type: UserActionTypes.AUTH_USER_LOGOUT,
+      })
+    } catch (error) {
+      dispatch({
+        type: UserActionTypes.AUTH_USER_ERROR,
+        payload: { message: 'User logout error' },
+      })
+    }
+  }
+}

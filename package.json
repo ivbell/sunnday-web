@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "gen:theme-typings": "chakra-cli tokens <src/lib/theme/theme.(js|ts)>",
+    "postinstall": "npm run gen:theme-typings"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.8.1",
@@ -27,6 +29,7 @@
     "universal-cookie": "^4.0.4"
   },
   "devDependencies": {
+    "@chakra-ui/cli": "^1.8.1",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "@typescript-eslint/eslint-plugin": "^5.9.1",

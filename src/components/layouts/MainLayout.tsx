@@ -7,8 +7,11 @@ type Props = {
 }
 
 const MainLayout: FC<Props> = ({ children, title }) => {
-  document.title = `${title} | Sunnday | A note-taking app and a little more`
-
+  if (title) {
+    document.title = `${title} | Sunnday | A note-taking app and a little more`
+  } else {
+    document.title = `Sunnday | A note-taking app and a little more`
+  }
   return (
     <Stack direction={['column', 'row']}>
       <Box position={'relative'} minW={'500px'} maxW={'500px'}>
