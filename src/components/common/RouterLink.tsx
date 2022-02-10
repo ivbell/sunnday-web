@@ -3,6 +3,7 @@ import React, { FC } from 'react'
 
 interface Props {
   readonly to: string
+  readonly onClick?: React.MouseEventHandler
 }
 
 export const RouterLink: FC<Props> = (props) => {

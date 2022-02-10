@@ -1,9 +1,9 @@
 import { Box, Heading, Stack, useColorModeValue } from '@chakra-ui/react'
 import React, { FC } from 'react'
-import { AiOutlineUnorderedList } from 'react-icons/ai'
 import { Menu } from '../Menu'
-import HeadListIconAdd from '../navbar-list/HeadListIconAdd'
 import { Settings } from '../Settings'
+import TaskFolderList from './task/TaskFolderList'
+import TaskHead from './task/TaskHead'
 
 const LeftNavbarMain: FC = () => {
   return (
@@ -33,11 +33,8 @@ const LeftNavbarMain: FC = () => {
           <Settings />
         </Stack>
       </Stack>
-      <HeadListIconAdd
-        title={'Tasks'}
-        icon={<AiOutlineUnorderedList />}
-        onClick={() => console.log(12)}
-      />
+      <TaskHead />
+      <TaskFolderList />
       {/* all notes */}
       {/* Notebooks */}
       {/* Templates */}
