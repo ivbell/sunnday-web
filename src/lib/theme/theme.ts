@@ -20,7 +20,7 @@ const config = {
 
 const fonts = {
   heading: "'Comfortaa', cursive",
-  body: "'M PLUS Rounded 1c', sans-serif",
+  body: "'Roboto', sans-serif",
 }
 const components = {
   Button,

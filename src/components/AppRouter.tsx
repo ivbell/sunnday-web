@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { useTypedSelector } from '../lib/hooks/useTypedSelector'
+import { useTypedSelector } from '../lib/hooks/redux/useTypedSelector'
 import { privateRoutes, publicRoutes } from '../lib/router'
 
 const AppRouter: FC = () => {

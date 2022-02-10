@@ -5,8 +5,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "gen:theme-typings": "chakra-cli tokens <src/lib/theme/theme.(js|ts)>",
-    "postinstall": "npm run gen:theme-typings"
+    "gen:theme-typings": "chakra-cli tokens src/lib/theme/theme.ts"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.8.1",

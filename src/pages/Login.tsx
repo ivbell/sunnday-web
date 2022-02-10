@@ -14,8 +14,8 @@ import React, { FC, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Cookie from 'universal-cookie'
 import EmptyLayout from '../components/layouts/EmptyLayout'
-import { useActions } from '../lib/hooks/useActions'
-import { useTypedSelector } from '../lib/hooks/useTypedSelector'
+import { useActions } from '../lib/hooks/redux/useActions'
+import { useTypedSelector } from '../lib/hooks/redux/useTypedSelector'
 
 interface User {
   readonly login: string
