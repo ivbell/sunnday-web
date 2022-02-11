@@ -8,6 +8,5 @@ export default {
   // The default `size` or `variant` values
   defaultProps: {
     size: 'md',
-    variant: 'flushed',
   },
 }

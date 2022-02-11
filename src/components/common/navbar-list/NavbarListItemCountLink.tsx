@@ -10,7 +10,7 @@ interface Props {
 const NavbarListItemCountLink: FC<Props> = (props) => {
   const { title, count } = props
   return (
-    <Box>
+    <Box cursor={'pointer'}>
       <Stack
         alignItems={'center'}
         justify={'space-between'}
