@@ -1,16 +1,22 @@
 import { Box, Icon, Stack, Text } from '@chakra-ui/react'
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { AiOutlinePlusCircle } from 'react-icons/ai'
 
 interface Props {
   readonly title: string
   readonly icon: React.ReactElement
   readonly onClick: React.MouseEventHandler
+  readonly isShowElement: React.ReactElement
 }
 
 const HeadListIconAdd: FC<Props> = (props) => {
+  const { isShowElement } = props
+  const [isShowAdd, setIsShowAdd] = useState<boolean>(false)
   return (
-    <Box _hover={{ backgroundColor: 'sn.bg_accent' }} px={2} py={1}>
+    <Box
+      position={'relative'}
+      _hover={{ backgroundColor: 'sn.bg_accent' }}
+      px={2}>
       <Stack
         direction={['column', 'row']}
         alignItems={'center'}
@@ -33,6 +39,7 @@ const HeadListIconAdd: FC<Props> = (props) => {
           />
         </Box>
       </Stack>
+      {isShowAdd && isShowElement}
     </Box>
   )
 }

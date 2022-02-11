@@ -1,5 +1,6 @@
 import { Box, Heading, Stack, useColorModeValue } from '@chakra-ui/react'
 import React, { FC } from 'react'
+import NavbarContainer from '../common/navbar-list/NavbarContainer'
 import { Menu } from '../Menu'
 import { Settings } from '../Settings'
 import TaskFolderList from './task/TaskFolderList'
@@ -33,8 +34,10 @@ const LeftNavbarMain: FC = () => {
           <Settings />
         </Stack>
       </Stack>
-      <TaskHead />
-      <TaskFolderList />
+      <NavbarContainer>
+        <TaskHead />
+        <TaskFolderList />
+      </NavbarContainer>
       {/* all notes */}
       {/* Notebooks */}
       {/* Templates */}

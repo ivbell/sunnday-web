@@ -23,13 +23,15 @@ const TaskFolderList: FC = () => {
           key={r._id}
           title={r.name}
           folder_list={child_folder}
+          count={r.count}
         />
       )
     }
     return (
       <Box
         _hover={{ backgroundColor: 'sn.bg_accent' }}
-        px={2}
+        pr={2}
+        pl={9}
         py={1}
         key={r._id}>
         <NavbarListItemCountLink to={r._id} title={r.name} count={r.count} />

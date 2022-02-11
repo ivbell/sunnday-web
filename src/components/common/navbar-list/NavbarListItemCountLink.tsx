@@ -15,7 +15,7 @@ const NavbarListItemCountLink: FC<Props> = (props) => {
       <Box>
         <Stack justify={'space-between'} direction={['column', 'row']}>
           <Text>{title}</Text>
-          <Text>{count}</Text>
+          <Text fontSize={'sm'}>{count}</Text>
         </Stack>
       </Box>
     </RouterLink>
