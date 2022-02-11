@@ -4,24 +4,31 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "gen:theme-typings": "chakra-cli tokens src/lib/theme/theme.ts"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.8.1",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
+    "@types/react-redux": "^7.1.22",
     "@types/styled-components": "^5.1.21",
+    "axios": "^0.25.0",
     "framer-motion": "^5.6.0",
-    "mobx": "^6.3.12",
-    "mobx-react": "^7.2.1",
     "normalize.css": "^8.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
+    "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
-    "styled-components": "^5.3.3"
+    "redux": "^4.1.2",
+    "redux-thunk": "^2.4.1",
+    "styled-components": "^5.3.3",
+    "swr": "^1.2.1",
+    "universal-cookie": "^4.0.4"
   },
   "devDependencies": {
+    "@chakra-ui/cli": "^1.8.1",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "@typescript-eslint/eslint-plugin": "^5.9.1",

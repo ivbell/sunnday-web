@@ -3,6 +3,7 @@ import Error from '../../pages/Error'
 import Home from '../../pages/Home'
 import Login from '../../pages/Login'
 import React from 'react'
+import TaskFolder from '../../pages/TaskFolder'
 
 export type Router = {
   path: string
@@ -14,6 +15,7 @@ export enum RouterNames {
   DASHBOARD = '/dashboard',
   LOGIN = '/login',
   ERROR = '*',
+  TASK_FOLDER = '/task/folder/:id',
 }
 
 export const publicRoutes: Router[] = [
@@ -24,4 +26,5 @@ export const publicRoutes: Router[] = [
 
 export const privateRoutes: Router[] = [
   { path: RouterNames.DASHBOARD, element: <Dashboard /> },
+  { path: RouterNames.TASK_FOLDER, element: <TaskFolder /> },
 ]

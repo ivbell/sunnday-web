@@ -1,10 +1,11 @@
-import { FC } from "react"
+import React, { FC } from 'react'
+import EmptyLayout from '../components/layouts/EmptyLayout'
 
 const Error: FC = () => {
   return (
-    <div>
-      error page
-    </div>
+    <EmptyLayout title={'Error page'}>
+      404 | error page
+    </EmptyLayout>
   )
 }
 
