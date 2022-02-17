@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { useTypedSelector } from '../lib/hooks/redux/useTypedSelector'
+import { useAppSelector } from '../lib/hooks/redux/redux'
 import { privateRoutes, publicRoutes } from '../lib/router'
 
 const AppRouter: FC = () => {
-  const { is_auth } = useTypedSelector((state) => state.user)
+  const { is_auth } = useAppSelector((state) => state.userReducer)
 
   const publicRouter = publicRoutes.map((r) => (
     <Route key={r.path} path={r.path} element={r.element} />

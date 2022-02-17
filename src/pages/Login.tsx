@@ -7,15 +7,15 @@ import {
   Input,
   Stack,
   Text,
-  useToast,
+  useToast
 } from '@chakra-ui/react'
 import axios from 'axios'
 import React, { FC, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Cookie from 'universal-cookie'
 import EmptyLayout from '../components/layouts/EmptyLayout'
-import { useActions } from '../lib/hooks/redux/useActions'
-import { useTypedSelector } from '../lib/hooks/redux/useTypedSelector'
+import { useAppDispatch, useAppSelector } from '../lib/hooks/redux/redux'
+import { userAuthToken } from '../lib/store/action-creators/user.action'
 
 interface User {
   readonly login: string
@@ -25,13 +25,13 @@ interface User {
 const Login: FC = () => {
   const toast = useToast()
   const navigate = useNavigate()
-  const { is_auth } = useTypedSelector((state) => state.user)
+  const { is_auth } = useAppSelector((state) => state.userReducer)
   const cookie = new Cookie()
   const initial_user: User = {
     login: '',
     password: '',
   }
-  const { userAuthToken } = useActions()
+  const dispatch = useAppDispatch()
   const [user, setUser] = useState<User>(initial_user)
   const [is_load, setIsLoad] = useState<boolean>(false)
 
@@ -59,7 +59,7 @@ const Login: FC = () => {
         })
         .then((res) => {
           cookie.set('token', res.data.accessToken, { path: '/', maxAge: 3600 })
-          userAuthToken(res.data.accessToken)
+          dispatch(userAuthToken(res.data.accessToken))
           navigate('/dashboard')
           toast({
             title: 'Welcome back',
