@@ -2,21 +2,19 @@ import { ChakraProvider } from '@chakra-ui/react'
 import React, { useEffect } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import AppRouter from './components/AppRouter'
-import LoadingComponent from './components/common/LoadingComponent'
 import useTokenCookie from './lib/hooks/cookie/useTokenCookie'
-import { useActions } from './lib/hooks/redux/useActions'
-import { useTypedSelector } from './lib/hooks/redux/useTypedSelector'
+import { useAppDispatch, useAppSelector } from './lib/hooks/redux/redux'
+import { userAuthToken } from './lib/store/action-creators/user.action'
 import Fonts from './lib/theme/fonts'
 import theme from './lib/theme/theme'
 
 const App = () => {
   const { token } = useTokenCookie()
-  const { loading } = useTypedSelector((store) => store.user)
-  const { userAuthToken } = useActions()
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
     if (token) {
-      userAuthToken(token)
+      dispatch(userAuthToken(token))
     }
   }, [])
 
@@ -24,7 +22,7 @@ const App = () => {
     <ChakraProvider theme={theme}>
       <Fonts />
       <BrowserRouter>
-        {loading ? <LoadingComponent /> : <AppRouter />}
+        <AppRouter />
       </BrowserRouter>
     </ChakraProvider>
   )

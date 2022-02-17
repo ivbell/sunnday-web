@@ -1,47 +1,30 @@
 import axios from 'axios'
-import { Dispatch } from 'react'
-import { UserAction, UserActionTypes } from '../reducers/user/user.type'
+import { AppDispatch } from '..'
+import { userSlice } from '../reducers/user/UserSlice'
 
-export const userAuthToken = (token: string) => {
-  return async (dispatch: Dispatch<UserAction>) => {
-    try {
-      dispatch({
-        type: UserActionTypes.AUTH_USER,
-        payload: { user_id: '', is_auth: false },
-      })
-
-      const response = await axios.get(`${import.meta.env.VITE_SERVER}/auth`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      dispatch({
-        type: UserActionTypes.AUTH_USER_SUCCESS,
-        payload: {
-          user_id: response.data.user_id,
-          is_auth: response.data.auth,
-        },
-      })
-    } catch (error) {
-      dispatch({
-        type: UserActionTypes.AUTH_USER_ERROR,
-        payload: { message: 'User auth error' },
-      })
-    }
-  }
+export type UserIdResponseToken = {
+  auth: boolean
+  user_id: string
 }
 
-export const userLogout = () => {
-  return (dispatch: Dispatch<UserAction>) => {
+export const userAuthToken =
+  (token: string) => async (dispatch: AppDispatch) => {
     try {
-      dispatch({
-        type: UserActionTypes.AUTH_USER_LOGOUT,
-      })
+      dispatch(userSlice.actions.isAuth())
+      const response = await axios.get<UserIdResponseToken>(
+        `${import.meta.env.VITE_SERVER}/auth`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      dispatch(userSlice.actions.isAuthSuccess(response.data))
     } catch (error) {
-      dispatch({
-        type: UserActionTypes.AUTH_USER_ERROR,
-        payload: { message: 'User logout error' },
-      })
+      dispatch(userSlice.actions.isAuthError())
     }
   }
+
+export const userLogout = () => (dispatch: AppDispatch) => {
+  dispatch(userSlice.actions.isLogout())
 }
