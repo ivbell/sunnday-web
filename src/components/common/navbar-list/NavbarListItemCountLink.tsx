@@ -1,6 +1,5 @@
 import { Box, Stack, Text } from '@chakra-ui/react'
 import React, { FC } from 'react'
-import { RouterLink } from '../RouterLink'
 
 interface Props {
   readonly title: string
@@ -9,16 +8,17 @@ interface Props {
 }
 
 const NavbarListItemCountLink: FC<Props> = (props) => {
-  const { title, count, to } = props
+  const { title, count } = props
   return (
-    <RouterLink to={`/task/folder/${to}`}>
-      <Box>
-        <Stack justify={'space-between'} direction={['column', 'row']}>
-          <Text>{title}</Text>
-          <Text fontSize={'sm'}>{count}</Text>
-        </Stack>
-      </Box>
-    </RouterLink>
+    <Box cursor={'pointer'}>
+      <Stack
+        alignItems={'center'}
+        justify={'space-between'}
+        direction={['column', 'row']}>
+        <Text fontSize={'sm'}>{title}</Text>
+        <Text fontSize={'xs'}>{count}</Text>
+      </Stack>
+    </Box>
   )
 }
 
